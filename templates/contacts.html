@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}My contacts{% endblock %}
+
+{% block content %}
+    <h2 class="my-2">Contact me:</h2>
+    <p class="mb-1">VK - id1300223</p>
+    <p>mob - 89005553535</p>
+
+    <h2 class="my-2">Your feedback</h2>
+
+    <p style ="color:red">{{ error }}</p>
+
+    <form method = "post" action = "/contacts/">
+        {% csrf_token %}
+        <div class="form-group row">
+            <div class="col-5">
+                <input type ="text" class="form-control" name = "feedback contacts" placeholder = "Your contacts">
+                <small class="form-text text-muted">Leave your email address or phone number here</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-5">
+                <textarea name = "feedback text" class="form-control" rows="3" placeholder = "Your text"></textarea>
+                <small class="form-text text-muted">Leave your wishes about website here</small>
+            </div>
+        </div>
+            <input class="btn btn-success" type="submit" value = "Send"/>
+    </form>
+
+{% endblock %}
